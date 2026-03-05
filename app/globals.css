@@ -1,0 +1,170 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * ============================================================
+ * FINANCIER BOT — DESIGN SYSTEM TOKENS (CSS Variables)
+ * ============================================================
+ * Estos tokens son el puente entre el Design System Panel
+ * (lib/design-system.ts) y Tailwind CSS.
+ *
+ * Si modificas los valores en lib/design-system.ts, actualiza
+ * también los valores hex aquí para mantener la consistencia.
+ * ============================================================
+ */
+:root {
+  /* --- Marca principal --- */
+  /* Cambia #10B981 para actualizar botones CTA, iconos y bordes del chatbot */
+  --brand-primary: #10B981;
+  --brand-primary-dark: #059669;
+  --brand-primary-glow: rgba(16, 185, 129, 0.3);
+
+  /* Cambia #F59E0B para actualizar acentos dorados y highlights de precio */
+  --brand-secondary: #F59E0B;
+  --brand-secondary-glow: rgba(245, 158, 11, 0.3);
+
+  /* --- Fondos --- */
+  --background: #0D1117;
+  --surface: #161B22;
+  --surface-elevated: #21262D;
+
+  /* --- Texto --- */
+  --foreground: #E6EDF3;
+  --text-muted: #8B949E;
+
+  /* --- Bordes --- */
+  --border: #30363D;
+
+  /* --- Glassmorphism --- */
+  /* Cambia el número en blur() para ajustar el desenfoque global */
+  --glass-bg: rgba(22, 27, 34, 0.75);
+  --glass-blur: 16px;
+
+  /* --- Sombras --- */
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.4);
+  --shadow-glow-primary: 0 0 20px rgba(16, 185, 129, 0.3);
+  --shadow-glow-secondary: 0 0 20px rgba(245, 158, 11, 0.3);
+
+  /* --- Geometría --- */
+  /* Cambia para ajustar border-radius global: 8px=sharp, 12px=modern, 20px=soft */
+  --radius: 12px;
+  --radius-pill: 9999px;
+  --radius-input: 8px;
+
+  /* --- Shadcn token mappings --- */
+  --card: #161B22;
+  --card-foreground: #E6EDF3;
+  --popover: #161B22;
+  --popover-foreground: #E6EDF3;
+  --primary: #10B981;
+  --primary-foreground: #0D1117;
+  --secondary: #21262D;
+  --secondary-foreground: #E6EDF3;
+  --muted: #21262D;
+  --muted-foreground: #8B949E;
+  --accent: #21262D;
+  --accent-foreground: #E6EDF3;
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
+  --input: #30363D;
+  --ring: #10B981;
+  --chart-1: #10B981;
+  --chart-2: #F59E0B;
+  --chart-3: #3B82F6;
+  --chart-4: #8B5CF6;
+  --chart-5: #EF4444;
+  --sidebar: #161B22;
+  --sidebar-foreground: #E6EDF3;
+  --sidebar-primary: #10B981;
+  --sidebar-primary-foreground: #0D1117;
+  --sidebar-accent: #21262D;
+  --sidebar-accent-foreground: #E6EDF3;
+  --sidebar-border: #30363D;
+  --sidebar-ring: #10B981;
+}
+
+@theme inline {
+  --font-sans: 'Geist', 'Geist Fallback';
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
+
+  /* Brand colors exposed to Tailwind utilities */
+  --color-brand-primary: var(--brand-primary);
+  --color-brand-secondary: var(--brand-secondary);
+  --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-sans);
+  }
+}
+
+@layer utilities {
+  /* Glassmorphism utility — usa var(--glass-blur) y var(--glass-bg) del panel */
+  .glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--border);
+  }
+
+  /* Glow effects — aplica el color primario o secundario */
+  .glow-primary {
+    box-shadow: var(--shadow-glow-primary);
+  }
+  .glow-secondary {
+    box-shadow: var(--shadow-glow-secondary);
+  }
+
+  /* Gradient text con colores de marca */
+  .gradient-text-brand {
+    background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
