@@ -34,25 +34,6 @@ export function HeroSection() {
       />
 
       <div className="relative mx-auto flex max-w-4xl flex-col items-center px-6 pt-32 pb-24 text-center">
-        {/* Badge de anuncio */}
-        <a
-          href="#"
-          className="mb-8 flex items-center gap-2 rounded-full px-4 py-2 text-xs font-medium transition-opacity hover:opacity-80"
-          style={{
-            background: ds.colors.surface,
-            border: `1px solid ${ds.colors.border}`,
-            color: ds.colors.textMuted,
-          }}
-        >
-          <span
-            className="h-1.5 w-1.5 rounded-full animate-pulse"
-            style={{ background: ds.colors.primary }}
-          />
-          <span style={{ color: ds.colors.primary }} className="font-semibold">Nuevo</span>
-          &nbsp;· Ahora con análisis predictivo de gastos
-          <ArrowRight size={12} />
-        </a>
-
         {/* Título principal */}
         <h1 className="text-4xl font-bold leading-tight tracking-tight text-foreground text-balance md:text-6xl">
           Toma el Control Total de tu Dinero{' '}
@@ -68,7 +49,7 @@ export function HeroSection() {
         {/* CTAs */}
         <div className="mt-10 flex flex-col sm:flex-row items-center gap-4">
           {/* Botón primario — usa ds.colors.primary; cámbialo en el Design System Panel */}
-          <CtaButton label="Empezar mis 14 días GRATIS" size="lg" href="#" />
+          <CtaButton label="Empezar mis 14 días GRATIS" size="lg" href="https://wa.me/573045308884?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20probar%20el%20bot%20gratis." />
           <a
             href="#demo"
             className="flex items-center gap-2 text-sm font-medium transition-colors hover:opacity-80"
@@ -102,7 +83,7 @@ export function HeroSection() {
           }}
         >
           {[
-            { value: '+2.400', label: 'usuarios activos' },
+          { value: '+100', label: 'usuarios activos' },
             { value: '$18M+', label: 'en gastos rastreados' },
             { value: '4.9/5', label: 'valoración promedio' },
           ].map(({ value, label }) => (

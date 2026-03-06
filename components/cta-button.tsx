@@ -46,6 +46,8 @@ export function CtaButton({ label, href = '#', variant = 'primary', size = 'defa
   return (
     <a
       href={href}
+      target="_blank"
+      rel="noopener noreferrer"
       style={variant === 'primary' ? primaryStyle : outlineStyle}
       className={`${padding} hover:opacity-90 active:scale-95`}
     >
@@ -103,7 +105,7 @@ export function FreeBanner() {
 
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
             {/* Botón principal — color viene de ds.colors.primary */}
-            <CtaButton label="Empezar mis 14 días GRATIS" size="lg" href="#" />
+            <CtaButton label="Empezar mis 14 días GRATIS" size="lg" href="https://wa.me/573045308884?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20probar%20el%20bot%20gratis." />
           </div>
 
           <div className="mt-6 flex items-center justify-center gap-2 text-xs text-muted-foreground">

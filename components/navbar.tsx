@@ -7,7 +7,7 @@ const navLinks = [
   { label: 'Cómo funciona', href: '#demo' },
   { label: 'Habilidades', href: '#skills' },
   { label: 'Testimonios', href: '#testimonios' },
-  { label: 'Precio', href: '#precio' },
+  { label: 'Precios', href: '#precios' },
 ]
 
 export function Navbar() {
@@ -27,9 +27,9 @@ export function Navbar() {
           className="flex h-7 w-7 items-center justify-center rounded-lg text-xs font-black"
           style={{ background: ds.colors.primary, color: ds.colors.background }}
         >
-          FB
+          AI
         </span>
-        <span>Financier Bot</span>
+        <span>AI Smart Bot - Tu asistente financiero personal</span>
       </a>
 
       {/* Nav links — escritorio */}
@@ -46,7 +46,7 @@ export function Navbar() {
       </nav>
 
       {/* CTA */}
-      <CtaButton label="Empezar gratis" href="#" variant="primary" />
+      <CtaButton label="Empezar gratis" href="https://wa.me/573045308884?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20probar%20el%20bot%20gratis." variant="primary" />
     </header>
   )
 }
@@ -63,9 +63,9 @@ export function Footer() {
             className="flex h-6 w-6 items-center justify-center rounded-md text-[10px] font-black"
             style={{ background: ds.colors.primary, color: ds.colors.background }}
           >
-            FB
+            AI
           </span>
-          Financier Bot
+          AI Smart Bot
         </div>
         <p className="text-xs text-muted-foreground text-center">
           © {new Date().getFullYear()} Financier Bot. Todos los derechos reservados.

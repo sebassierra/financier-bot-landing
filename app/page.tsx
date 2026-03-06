@@ -1,6 +1,6 @@
 /**
  * ============================================================
- * FINANCIER BOT — LANDING PAGE
+ * AI SMART BOT — LANDING PAGE
  * ============================================================
  *
  * DESIGN SYSTEM PANEL:
@@ -22,6 +22,7 @@ import { WhatsAppChat } from '@/components/whatsapp-chat'
 import { SkillsGrid } from '@/components/skills-grid'
 import { SocialProof } from '@/components/social-proof'
 import { FreeBanner } from '@/components/cta-button'
+import { PricingSection } from '@/components/pricing-section'
 import { FloatingAgent } from '@/components/floating-agent'
 import { Navbar, Footer } from '@/components/navbar'
 
@@ -51,7 +52,10 @@ export default function Home() {
           <SocialProof />
         </section>
 
-        {/* ── 6. Free Trial Banner ── */}
+        {/* ── 6. Pricing — 2 planes ── */}
+        <PricingSection />
+
+        {/* ── 7. Free Trial Banner ── */}
         <section id="precio">
           <FreeBanner />
         </section>
@@ -59,7 +63,7 @@ export default function Home() {
 
       <Footer />
 
-      {/* ── 7. Floating WhatsApp Agent ── */}
+      {/* ── 8. Floating WhatsApp Support Button ── */}
       <FloatingAgent />
     </>
   )

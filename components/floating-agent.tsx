@@ -4,12 +4,15 @@ import { ds } from '@/lib/design-system'
 import { MessageCircle, X } from 'lucide-react'
 import { useState } from 'react'
 
-/** Número de WhatsApp del negocio — reemplaza con el tuyo */
-const WHATSAPP_NUMBER = '573001234567'
-const WHATSAPP_MESSAGE = encodeURIComponent(
-  'Hola! Me interesa probar Financier Bot. ¿Cómo puedo empezar?'
-)
-const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MESSAGE}`
+/**
+ * Botón flotante de soporte por WhatsApp.
+ * -------------------------------------------------------
+ * WHATSAPP_SUPPORT_URL → número personal para dudas.
+ * Cambia el número o el mensaje preescrito aquí.
+ * -------------------------------------------------------
+ */
+const WHATSAPP_SUPPORT_URL =
+  'https://wa.me/573006763077?text=Hola!%20Tengo%20una%20duda%20sobre%20AI%20Smart%20Bot.'
 
 export function FloatingAgent() {
   const [isOpen, setIsOpen] = useState(false)
@@ -33,10 +36,10 @@ export function FloatingAgent() {
                 className="flex h-8 w-8 items-center justify-center rounded-full text-xs font-bold"
                 style={{ background: ds.colors.primary, color: ds.colors.background }}
               >
-                FB
+                AI
               </div>
               <div>
-                <p className="text-sm font-semibold text-foreground">Financier Bot</p>
+                <p className="text-sm font-semibold text-foreground">AI Smart Bot</p>
                 {/* El punto verde de "en línea" usa --brand-primary */}
                 <div className="flex items-center gap-1">
                   <span
@@ -57,11 +60,11 @@ export function FloatingAgent() {
           </div>
 
           <p className="text-xs text-muted-foreground leading-relaxed mb-4">
-            Hola! Soy tu agente financiero. ¿Listo para tomar control de tus finanzas? 💬
+            Hola! ¿Tienes dudas sobre AI Smart Bot? Escríbenos y te respondemos de inmediato.
           </p>
 
           <a
-            href={WHATSAPP_URL}
+            href={WHATSAPP_SUPPORT_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="flex w-full items-center justify-center gap-2 rounded-xl py-2.5 text-sm font-semibold transition-all duration-200 hover:opacity-90 active:scale-95"
@@ -73,7 +76,7 @@ export function FloatingAgent() {
             }}
           >
             <MessageCircle size={15} />
-            Chatear por WhatsApp
+            Enviar mensaje
           </a>
         </div>
       )}
@@ -84,11 +87,11 @@ export function FloatingAgent() {
         className="flex h-14 w-14 items-center justify-center rounded-full transition-all duration-200 hover:scale-105 active:scale-95"
         style={{
           background: ds.colors.primary,
-          /* Borde exterior del botón flotante usa --brand-primary */
+          /* El borde exterior usa --brand-primary; cambia ds.colors.primary en el panel */
           boxShadow: `0 0 0 4px ${ds.colors.primary}30, ${ds.effects.shadowGlowPrimary}, ${ds.effects.shadowCard}`,
           color: ds.colors.background,
         }}
-        aria-label="Abrir chat con Financier Bot"
+        aria-label="Abrir soporte por WhatsApp"
       >
         {isOpen ? <X size={22} /> : <MessageCircle size={22} />}
       </button>
